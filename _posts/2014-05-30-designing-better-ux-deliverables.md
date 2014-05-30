@@ -2,10 +2,11 @@
 layout: post
 title: Designing better UX deliverables - Anna Dahlström
 categories: 
-- UX
-- IA
-- camusability
+- UX 
+- IA 
+- camusability 
 ---
+
 This talk happened a few weeks ago now, but the topic is timeless, so there is no harm in getting my notes up a bit late. Anna Dahlstrom([@annadahlstrom](https://twitter.com/annadahlstrom)) came up to Cambridge to give a talk on how to design better UX deliverables, but more broadly the talk had many lessons about how to present results to different stakeholders, not just for UX. 
 
 ## A litte bit about Anna
@@ -71,24 +72,24 @@ Overall, what is going on here is that colour is being used as an almost abstrac
 - mostly it won't be you presenting your own work  
 
 Narrative is the key thing. It's only when people tell stories that people feel engaged. 
-	- Make things reusable between projects  
-		- stencils  
-		- keep assets organised  
-		- spend some time setting up elements properly  
-		- use layers and shared canvases  
-		- keep your documents organised   
-	- adapt to the reader  
 
-	- use a mixture or colours white space and fonts
+- Make things reusable between projects  
+	- stencils  
+	- keep assets organised  
+	- spend some time setting up elements properly  
+	- use layers and shared canvases  
+	- keep your documents organised   
+- adapt to the reader  
 
-	- Don't be lazy  
-		- check spelling  
-		- ensure alignment  
-		- include spacing  
-		- alway proof  
-	- don't be unrealistic with wireframes  
-	- don't spend unneccesary time polishing  
-		- work with simple tools   
+- use a mixture or colours white space and fonts
+- Don't be lazy  
+	- check spelling  
+	- ensure alignment  
+	- include spacing  
+	- alway proof  
+- don't be unrealistic with wireframes  
+- don't spend unneccesary time polishing  
+	- work with simple tools   
 
 ## 15 min exercise
 We are given an exercise to design the layouts for a mobile app, and to spend the time thinking about putting into practice some of the tips presented in the talk. What is astonishing about this is that in 15 minutes, when you put things on paper, you can actually get really quite far, when you set aside the and let go of the inner censor, and just allow yourself to get the work out onto paper. I felt that the act of making visual the idea raises questions inherent to the idea, and makes you address problems as the exist, rather than as you think they may exist. 
