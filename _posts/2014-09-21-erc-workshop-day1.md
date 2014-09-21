@@ -20,7 +20,7 @@ categories:
     * [Sabrina Leonelli - the epistemology of data-intesive science.](#sabrina-leonelli-the-epistemology-of-data-intesive-science)
     * [Dr Hans Pfeiffenberger - Open Science -- opportunities, challenges ... [@datasciencefeed](https://twitter.com/DataScienceFeed).](#dr-hans-pfeiffenberger-open-science-opportunities-challenges-datasciencefeedhttpstwittercomdatasciencefeed)
     * [Bernd Pulverer - finding and accessing the data behind figures.](#bernd-pulverer-finding-and-accessing-the-data-behind-figures)
-    * [Dr Roar Skålin - Norwegian researchers want to share, but are afraid of jeopardising their career.](#dr-roar-skålin-norwegian-researchers-want-to-share-but-are-afraid-of-jeopardising-their-career)
+    * [Dr Roar Skålin - Norwegian researchers want to share, but are afraid of jeopardising their career.](#dr-roar-skålin-norwegian-researchers-want-to-share-but-are-afraid-of-jeopardising-their-career)
     * [Summary of points from the scene setting.](#summary-of-points-from-the-scene-setting)
   * [Afternoon breakout session - Life Sciences.](#afternoon-breakout-session-life-sciences)
     * [Short comments](#short-comments)
@@ -38,7 +38,7 @@ categories:
 <!-- toc stop -->
 
 
-These are notes from the first day of the European Research Council Research Data Management & Sharing Workshop. I've also [posted notes from the second day](), and I'll shortly add another post examining problems and potential solutions raised over the course of the workshop. Jennifer Lin from PLOS has also posted [some excellent notes](https://www.evernote.com/shard/s215/sh/76269856-3b62-4103-81ba-2068dca1b470/9ac27bc2968e5e9ea3e245eb44f9dff2).
+These are notes from the first day of the European Research Council Research Data Management & Sharing Workshop. I've also [posted notes from the second day](http://partiallyattended.com/2014/09/21/erc-workshop-day2/), and I'll shortly add another post examining problems and potential solutions raised over the course of the workshop. Jennifer Lin from PLOS has also posted [some excellent notes](https://www.evernote.com/shard/s215/sh/76269856-3b62-4103-81ba-2068dca1b470/9ac27bc2968e5e9ea3e245eb44f9dff2).
 
 These notes are bit jagged, but I thought there was more value in getting them out in a rough form ahead of the RDS meeting that starts tomorrow, rather than waiting to get them into better shape, but missing that event. My apologies up front for errors, and incomplete sentences.
 
@@ -123,7 +123,7 @@ Bernd emphasis that not all data is useful. Raw and unstructured data age rapidl
 
 Do we open the gates to heaven or to hell?
 
-###  Dr Roar Skålin - Norwegian researchers want to share, but are afraid of jeopardising their career.
+###  Dr Roar Skålin - Norwegian researchers want to share, but are afraid of jeopardising their career.
 
 They surveyed researchers, and got responses from 1474 researchers, a response rate of just over 30%. This was statistically representative. A large number of researchers actively decided to opt out from the survey.
 
