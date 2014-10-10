@@ -1,17 +1,16 @@
---- 
+---
 title: About This Blog
 layout: post
 categories: about
 ---
 
-I'm [Ian Mulvany][me], I'm Head of Technology for [eLifeSciences][elife]. 
+I'm [Ian Mulvany][me], and I'm Head of Technology for [eLifeSciences][elife].
 
-This blog represents my personal opinion, and not that of my employer. 
+This blog represents my personal opinion, and not that of my employer.
 
-This blog is generated using the [jekyll][jekyll] templating engine, and it is hosted on [github][github]. The design has been very gratefully lifted from the very talented [Matt Foster][matt], and the background image was taken at the Alhambra. 
+This blog is generated using the [jekyll][jekyll] templating engine, and it is hosted on [github][github]. The design has been very gratefully lifted from the very talented [Matt Foster][matt].
 
-Pages are generated using github's [pages][gp] mechanism.
-
+The recent style update is inspired by Martin Fenner's [blog](http://blog.martinfenner.org/about.html).
 
 
 [elife]: http://www.elifesciences.org/
