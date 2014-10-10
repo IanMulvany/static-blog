@@ -1,9 +1,28 @@
 markdown: rdiscount
 pygments: true
-permalink: /:year/:month/:day/:title	
+permalink: /:year/:month/:day/:title
 lsi: false
 maruku:
     use_tex: false
     use_divs: false
     png_dir: images/latex
     png_url: /images/latex
+
+title: Partially attended
+name: Partically attended
+description: Posts covering scholarly communication, climbing and a smattering of other random topics
+tagline:
+url: http://partiallyattended.com
+author:
+  name: Ian Mulvany
+  orcid: 0000-0002-6754-1421
+  email: ian@mulvany.net
+  gravatar: abfd3f212a9252ecb14687a2c62f934b
+  affiliation:
+  github: ianmulvany
+  twitter: ianmulvany
+
+analytics :
+    provider : google
+    google :
+        tracking_id : 'UA-91067-5'
