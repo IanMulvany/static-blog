@@ -7,11 +7,11 @@ namespace :tags do
     require 'rubygems'
     require 'jekyll'
     include Jekyll::Filters
- 
+
     options = Jekyll.configuration({})
     site = Jekyll::Site.new(options)
     site.read_posts('')
- 
+
     html =<<-HTML
 ---
 layout: default
@@ -31,8 +31,8 @@ $(function(){
     if (hidden) {
       $(this).html(
         $(this).html().replace('→', '↓')
-      );         
-    } 
+      );
+    }
     else {
       $(this).html(
         $(this).html().replace('↓', '→')
@@ -44,7 +44,7 @@ $(function(){
 });
 </script>
     HTML
- 
+
     # Sort by the number of posts in the category.
     categories = site.categories.sort_by { |s| s[1].length }
 
@@ -52,21 +52,21 @@ $(function(){
       html << <<-HTML
       <h3 id="#{category}">&rarr; #{category} (#{posts.length})</h3>
       HTML
- 
+
       html << '<ul class="posts">'
       posts.reverse.each do |post|
         post_data = post.to_liquid
-        html << <<-HTML    
+        html << <<-HTML
           <li><span>#{date_to_string post.date}</span> &rarr; <a href="#{post.url}">#{post_data['title']}</a></li>
         HTML
       end
       html << '</ul>'
     end
- 
+
     File.open('tags.html', 'w+') do |file|
       file.puts html
     end
- 
+
     puts 'Done.'
   end
 end
