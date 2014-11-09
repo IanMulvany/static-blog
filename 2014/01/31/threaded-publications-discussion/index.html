@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+    
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>How to create threads between publications and clinical trial registraion numbers - 's Blog</title>
+   <meta name="author" content="" />
+   <meta name="google-site-verification" content="kcwqSOIUD45pdwQpCs4vO0hiOumWyJ42j_zp4Oc1eHE" />
+   <link rel='me' href='http://www.google.com/profiles/ian.mulvany'>
+   <link rel="alternate" type="application/rss+xml" title="partially attended" href="http://partiallyattended.com/atom.xml"/>
+   <!-- <link href="http://feeds.feedburner.com/hackerific" rel="alternate" title="Matt Foster" type="application/atom+xml" /> -->
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/app-ca19faaa3640e3ac64195a971a3f3ffd.css">
+    <link rel="stylesheet" href="/assets/jasny-bootstrap.min-1f13627da40baafa46480927e9ed7c4f.css">
+    <link rel="stylesheet" href="/assets/navmenu-push-48912be81fe1965cbda92ab1404e600b.css">
+    <link rel="stylesheet" href="/assets/fluidbox-e2af55dd5c3fecf7aea657fff65eec3f.css">
+
+</head>
+
+
+<body>
+
+
+<div class="site">
+
+    <div class="container">
+
+
+
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <div class="title">
+    <a class = "banner" href="/">partially-attended</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/tags.html">tags</a>
+    <a class="extra" href="/about.html">about</a>
+  </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h1>How to create threads between publications and clinical trial registraion numbers</h1>
+
+<p class="info">Posted on: 31 January 2014
+
+in 
+  <a href="/tags.html#publishing">publishing</a>,
+
+  <a href="/tags.html#crossref">crossref</a>,
+
+  <a href="/tags.html#threaded publications">threaded publications</a>,
+
+  <a href="/tags.html#elife">elife</a>
+
+
+</p>
+
+<div id="post">
+<p>Yesterday I attended an interesting meeting to discuss how to improve the connection between clinical trial registration ids and publications. My raw notes from the meeting follow. This is being discussed as publication threads, but the idea discussed here stands apart from the kind of publication threads that the endcode project worked on. </p>
+
+<h1 id="attendees">attendees</h1>
+<p>## ATTENDEES - organisations:
+eLife
+f1000
+PLOS
+BMC
+Springer
+lancet
+BMJ
+crossref </p>
+
+<h2 id="attendees---people">attendees - people</h2>
+<p>Geoffrey Bilder, CrossRef, Director of Strategic Initiatives Rachael Lammey, CrossRef, Product Manager CrossMark Daniel Shanahan, BioMed Central, Associate Publisher Tim Stevenson, BioMed Central, Product Manager
+Deborah Kahn, BioMed Central, EVP Publishing Caroline Black, BioMed Central, Senior Publisher Katherine Barton, BMJ, Operations Manager Josie Breen, BMJ, Head of Editorial Production Isaac Jones, BMJ, Production Manager
+Ian Mulvany, eLife, Head of Technology
+Iain Hrynaszkiewicz, F1000, Outreach Director
+Karen Rowlett, F1000Research, Managing Editor
+Helene Faure, ISRCTN Database Manager
+Hannah Jones, The Lancet, Managing Editor
+Dan Lewsley, The Lancet, Head of Production
+Joseph Brown, PLoS, Senior Editorial Manager
+Volker Boeing, Springer, Director, Process and Content Management Mirjam Kessler, Springer, Bibliographic Metadata Manager</p>
+
+<h2 id="background-and-status">Background and status</h2>
+<ul>
+  <li>this is a followup for the idea that was originally <a href="http://blogs.biomedcentral.com/bmcblog/2011/01/14/towards-threaded-publications-helping-to-set-the-scientific-record-straight/">blogged by iainh in 2011</a>. </li>
+  <li>the initiative stalled in 2013</li>
+  <li>about 30k trials are registered per year</li>
+  <li>for trials that are registered, there is nothing to link all of this together </li>
+  <li>currently we have 1 way links from the trial to the publications</li>
+</ul>
+
+<p>The vision is for every publication to forward and backward link to every other publication, but this is not practical. This is where crossmark comes in. The idea would be to implement a hub and spoke model, and get everyone to wire things together in crossmark. (My take from the technical side was that the trial registration id will be the parent in all of the relationships, but this needs a bit more fleshing out).</p>
+
+<h2 id="crossmark-notes">Crossmark notes</h2>
+<ul>
+  <li>lots of uptake. </li>
+  <li>over 1M assertions so far. 
+### Fundref</li>
+  <li>the key thing here is that it’s a typed namespace that sits under the crossmark metadata container. They call this a “program” within crossmark. 
+### Threaded publications proposal</li>
+  <li>they would like to mock the fundref approach for publication threads, and this meeting is to promote this idea, and to move towards an agreement for the namespace. </li>
+  <li>Geoff does the “can you identify” the blacked out paper. 
+### Threaded publications model</li>
+  <li>mentions that delays were related to missing infrastructure and competing with priorities</li>
+  <li>feels that they have launched another project that can act as a good model for threaded publications</li>
+  <li>this model is fundref 
+#### Fundref</li>
+  <li>was done quickly
+    <ul>
+      <li>they tried to do the simplest thing that could possibly work</li>
+      <li>they put together a quick governance group from funders and publishers</li>
+      <li>knew that they didn’t want to overcomplicate things </li>
+    </ul>
+  </li>
+  <li>they did a couple of things
+    <ul>
+      <li>they standardised on a vocabulary released under CC0</li>
+      <li>have an update mechanism</li>
+      <li>provided an example widget for filling out the info
+        <ul>
+          <li>main thing was this is an example for implementation purposes <a href="labs.corssref.org/fundref/widget">labs.corssref.org/fundref/widget</a></li>
+        </ul>
+      </li>
+      <li>the data collected is also released under a CC0 licence 
+##### Proposal</li>
+    </ul>
+  </li>
+  <li>create a working group</li>
+  <li>create a registry of registries
+    <ul>
+      <li>assign registry ids to the registries that we are interested in interoperating with</li>
+      <li>registration template for URLs to get to the registration (might need a resolution service?)</li>
+    </ul>
+  </li>
+  <li>how do we collect it? would like to put up a similar widget to the fundref one, and get this implemented in the submission systems </li>
+  <li>this all then gets passed into crossref in the same way that fundref information gets in. </li>
+  <li>then using the crossref API you can answer the following question
+    <ul>
+      <li>“show me all the articles that refer to the same clinical trial numbers mentioned in this document”</li>
+      <li>could be extended to also include the following query </li>
+      <li>AND “the publisher of that article is in a list of trusted participants”</li>
+      <li>BOOM! done, thank you! 
+##### Issues</li>
+    </ul>
+  </li>
+  <li>how do you find out if something has been updated?
+    <ul>
+      <li>the “do you know what this is” game does not work with how we signify that there is an update to an article </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="open-discussion">open discussion</h2>
+<ul>
+  <li>the proposal is to only include the trial ID</li>
+  <li>original proposal from ian H proposed in addition
+    <ul>
+      <li>article type</li>
+      <li>publication date</li>
+      <li>some other attributes …
+### Issues</li>
+    </ul>
+  </li>
+  <li>no article ontology</li>
+  <li>systematic reviews could explode the threads</li>
+  <li>many papers may not cite the trial </li>
+  <li>how do you identify the trial ID in the content?
+    <ul>
+      <li>some publishers have collected this from some point in time, however not all publishers will have this data retroactively. </li>
+      <li>BMC tags this in their XML, and example can be seen here: </li>
+    </ul>
+  </li>
+  <li>how journals publish the id and name is not at all standardised 
+    <ul>
+      <li>checking that the trial id is valid </li>
+      <li>that the registration is valid
+        <ul>
+          <li>Geoff mentions that they had exactly the same issues at the start of fundref</li>
+          <li>mentions that we might be able to identify the “shape of an id”</li>
+          <li>issue is raised that journals might just screw this up</li>
+          <li>AIP did a survey and ran fundref to see how often people got things wrong </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="discussions">Discussions</h2>
+<ul>
+  <li>there is no standard article type ontology across publishers
+    <ul>
+      <li>Geoff mentions that his take is that the thing we are trying to capture is the relationship between the article and the protocol. </li>
+    </ul>
+  </li>
+  <li>the issue of systematic reviews is that they are important, can we afford not to include them
+    <ul>
+      <li>perhaps get the author to fill in the widget, ask them to be thoughtful in terms of which trials they link to. </li>
+    </ul>
+  </li>
+  <li>data is mentioned as being important</li>
+  <li>tracking provenance of claims is mentioned as an issue
+    <ul>
+      <li>how do we allow other people to make assertions about DOIs after the fact, this leads to issues of provenance, and is related to trust</li>
+    </ul>
+  </li>
+  <li>if we only go forward from this date, it will be years before we have any useful data, if we can go backwards as well as forwards (make assertions on existing entities), it would help	
+    <ul>
+      <li>publishers could try and get their authors to go back and post-annotate their own publications - perhaps via ORCID</li>
+    </ul>
+  </li>
+  <li>funders should be involved
+    <ul>
+      <li>wellcome should be involved</li>
+    </ul>
+  </li>
+  <li>Geoff mentions that more requirements on the initiative will increase the chances the initiative would fail
+    <ul>
+      <li>Iain H mentions that there is probably an editorial issue of what our tolerance to the data quality is. Are editors happy with the quality of the result? 
+        <ul>
+          <li>is that an important enough of an issue to stop a pilot?</li>
+          <li>thinks that a pilot is a great way to have that conversation, if people know we are tracking this data, then people will start playing attention to the data more quickly</li>
+          <li>might help sort out the predatory publishers 
+            <ul>
+              <li>mentioned that that might not be the case, we should worry about this, but on the other hand, the more contribuions you get from researchers, the easier it is to self regulate </li>
+              <li>will get sock puppet problems, but these problems are there anyway, this initative won’t be a cause of that issue</li>
+              <li>clearly there are people out there who are trying to game the system, best thing you can do is provide as much evidence as you can</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>would there be a role for an admin and curation role
+        <ul>
+          <li>these are the kinds of things that fundref are discussing</li>
+          <li>in any of these cases you need to know who is making the assertion </li>
+          <li>at the moment in the crossref system everything is being asserted by the publisher </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>interesting question, how is this better than just scraping pubmed?
+    <ul>
+      <li>would capture more articles that are connected to clinical ids, where at the moment those connections are not tagged</li>
+    </ul>
+  </li>
+  <li>Geoff mentions that there are many situations where the best answer is to force people to cite this information, but his instinct is that they don’t want to overload that section, there won’t be a way to enforce consistency. (we all know that won’t work :P)</li>
+  <li>do we include article type? </li>
+  <li>do we need any other metadata? can anyone think of any other kind of metadata </li>
+  <li>how do we identify the trial id in the content? </li>
+  <li>how feasible is this for production/operations to manage?
+    <ul>
+      <li>really needs to happen at submission, and automate everything downstream from there</li>
+    </ul>
+  </li>
+  <li>is there any additional cost on top of crossref?
+    <ul>
+      <li>NO (at this point)
+        <ul>
+          <li>if however the steering group complicated the spec, the cost might need to be recouped, basically easier is cheaper </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>trials can be registered in many different places, often because trials can happen in different countries, each requiring registration
+    <ul>
+      <li>could the system under discussion be used to connect one trial to another trial</li>
+      <li>how do you then traverse this graph</li>
+      <li>could this be done in a self-policing kind of a way?</li>
+      <li>how do you distinguish between multiple ids for the same trial and trials related to a clinical review
+        <ul>
+          <li>the parent is always the clinical trial, under one trial a clinical review will only be listed once</li>
+          <li>if you want to traverse to publications that are tied a trial via another name for that trial, under the parent trial you would want to have the other trial listed as a child, and you could then traverse to the children of that node.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Do we need to worry about article types now?
+    <ul>
+      <li>Geoff says that we should come up with a proposed name for the relationships and if the debate goes on too long, then pass on and not worry about it.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="round-table-wrap-up">round table wrap up</h3>
+<ul>
+  <li>good idea </li>
+  <li>registration of trials is a worry </li>
+  <li>could become self policing</li>
+  <li>doubts we could get back data
+    <ul>
+      <li>everything needs critical mass</li>
+    </ul>
+  </li>
+  <li>prospect and licensing information is mentioned
+    <ul>
+      <li>Geoff mentions that this is all confused a bit</li>
+    </ul>
+  </li>
+  <li>great project, need to talk to editors</li>
+  <li>if you have a field in your submissions system then you want to make this as a condition of acceptance</li>
+  <li>can we say that back-files are optional?
+    <ul>
+      <li>yes, we have to say that this is optional</li>
+      <li>we would also say that back-files are not out of bounds</li>
+    </ul>
+  </li>
+  <li>from the perspective of a registrar, there is a benefit
+    <ul>
+      <li>more often than not a trial, when quoted, it’s correct</li>
+      <li>the key issue is that not all papers about trials quote the trial</li>
+      <li>registers can find related papers via keyword search </li>
+    </ul>
+  </li>
+  <li>thinks its worth doing from the point of the enduser
+    <ul>
+      <li>what’s the data policy? who owns the data? what’s the licence of the data?, crossref make no claims on the data, there are batch delivery methods, and there are charges for this delivery, with opt outs. </li>
+    </ul>
+  </li>
+  <li>another element of this is that sometimes papers are recommended in F1000, and they will check if they include trial IDs there</li>
+  <li>what next? is this system, or a version of this, a model for any funded piece of research that creates multiple outputs?
+    <ul>
+      <li>it has to be something that links them there has to be a starting point</li>
+    </ul>
+  </li>
+  <li>f1000 research also thinks it’s a great idea, they have a posters type that might also be something that could be included. Is slightly worried about letting authors put the info in. Would be great to have a check to see if the registration is a valid registration. 
+    <ul>
+      <li>anything we can do to help them not put in typos is a good idea, enforcing honesty is a much harder issue</li>
+    </ul>
+  </li>
+  <li>voice of the researcher would be nice to have in the room</li>
+  <li>BMC thinks its a strong idea, they think it’s overdue, it’s based on clinical trial registration, and we are not doing anything with this data at present. We are not currently exposing benefits of getting links between trials and publications. We need to possibly start simple, be aware that we might encounter some issues, but we need to move forward. </li>
+</ul>
+
+<h2 id="actions">Actions</h2>
+<pre><code>- propose a namespace for relationships to be modelled  
+- create an interest group now, that could potentially move towards being a crossref working group
+	- get a funder involved  
+	- get someone from the registry community  
+	- get a chair who is not from crossref @done 
+		- chair will come from BMC @done 
+	- have a product manager who helps coordinate the meeting  
+	- we can call the meeting today - meeting 0  
+	- arrange the next meeting   
+</code></pre>
+
+
+</div>
+
+
+
+
+
+
+  
+   
+    
+   
+
+  
+   
+
+  
+   
+
+  
+   
+    
+   
+
+
+
+<div id="related">
+
+  <h2>Recently Related By Tag</h2>
+
+
+ 
+
+  
+
+  
+
+  
+    
+    
+     <div id="taglink">
+      <a href="/tags.html#publishing">publishing</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+            <li><span>24 Sep 2014</span> &rarr; <a href="/2014/09/24/erc-workshop-thought">thoughts on the ERC data workshop</a></li>
+        
+      
+        
+            <li><span>21 Sep 2014</span> &rarr; <a href="/2014/09/21/erc-workshop-day2">ERC data management workshop, day 2</a></li>
+        
+      
+        
+            <li><span>21 Sep 2014</span> &rarr; <a href="/2014/09/21/erc-workshop-day1">ERC data management workshop, day 1</a></li>
+        
+      
+        <li>
+               
+             
+                
+             
+                
+             
+                
+             
+          
+            (<a href="/tags.html#publishing">24 more with this tag</a>)
+          
+       
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+     <div id="taglink">
+      <a href="/tags.html#elife">elife</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>02 Jul 2013</span> &rarr; <a href="/2013/07/02/ec-open-data-consultation-report">EC consultation on Open Data - a report.</a></li>
+        
+      
+        
+            <li><span>02 Jul 2013</span> &rarr; <a href="/2013/07/02/ec-open-data-consultation-our-view">EC consultation on Open Data - my presentation.</a></li>
+        
+      
+        <li>
+               
+             
+                
+                    
+                
+             
+                
+             
+                
+             
+          
+            (<a href="/tags.html#elife">4 more with this tag</a>)
+          
+       
+        </li>
+       </ul>
+  
+ 
+
+
+
+
+
+
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div id="comments" >
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'partiallyattended'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+     </div>
+
+    <div class="footer">
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91067-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+        <!-- Fluidbox https://github.com/terrymun/Fluidbox -->
+        <script src="/js/js-yaml.min.js"></script>
+        <script src="/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/js/jquery.fluidbox.min.js"></script>
+        <script type='text/javascript'>
+          $(function () {
+            $("a").fluidbox();
+          });
+        </script>
+
+        <!-- Bootstrap -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="/js/jasny-bootstrap.min.js"></script>
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+    
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Php user group March 2013 - BeHat. - 's Blog</title>
+   <meta name="author" content="" />
+   <meta name="google-site-verification" content="kcwqSOIUD45pdwQpCs4vO0hiOumWyJ42j_zp4Oc1eHE" />
+   <link rel='me' href='http://www.google.com/profiles/ian.mulvany'>
+   <link rel="alternate" type="application/rss+xml" title="partially attended" href="http://partiallyattended.com/atom.xml"/>
+   <!-- <link href="http://feeds.feedburner.com/hackerific" rel="alternate" title="Matt Foster" type="application/atom+xml" /> -->
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/app-ca19faaa3640e3ac64195a971a3f3ffd.css">
+    <link rel="stylesheet" href="/assets/jasny-bootstrap.min-1f13627da40baafa46480927e9ed7c4f.css">
+    <link rel="stylesheet" href="/assets/navmenu-push-48912be81fe1965cbda92ab1404e600b.css">
+    <link rel="stylesheet" href="/assets/fluidbox-e2af55dd5c3fecf7aea657fff65eec3f.css">
+
+</head>
+
+
+<body>
+
+
+<div class="site">
+
+    <div class="container">
+
+
+
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <div class="title">
+    <a class = "banner" href="/">partially-attended</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/tags.html">tags</a>
+    <a class="extra" href="/about.html">about</a>
+  </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h1>Php user group March 2013 - BeHat.</h1>
+
+<p class="info">Posted on: 08 April 2014
+
+in 
+  <a href="/tags.html#php">php</a>,
+
+  <a href="/tags.html#testing">testing</a>,
+
+  <a href="/tags.html#gherkin">gherkin</a>,
+
+  <a href="/tags.html#behat">behat</a>
+
+
+</p>
+
+<div id="post">
+<h1 id="background">Background.</h1>
+
+<p>On Monday the 31st of March I attended the <a href="http://www.meetup.com/phpcambridge/events/168024132/">Cambridge PHP Meetup</a>, the topic was BeHat testing. Johnathan Gough gave the talk.  </p>
+
+<p>This is something we are getting started with in eLife. We have a few small tests in place, we have a few regressions on the site that we want to tackle, and we are looking to use it as a way of pinning down requirements from the company for new features that we want to roll out. After attending this talk I also found this great blog post on why BDD is <a href="https://cucumber.pro/blog/2014/03/03/the-worlds-most-misunderstood-collaboration-tool.html">the world’s most misunderstood collabroation tool</a>.</p>
+
+<h1 id="notes">NOTES:</h1>
+
+<ul>
+  <li>lots of reasons to test</li>
+  <li>some reasons not to</li>
+  <li>it’s suggested that TDD can be quite brittle</li>
+  <li>BDD via BeHat is introduced as outside-in testing, a user story is introduced</li>
+  <li>one should use behat with composer  </li>
+</ul>
+
+<p>An interesting thing is that behat will create a /bin directory in the project directory. (I wonder whether that is something that can be set to system level, probably. (I would image that would be much nicer)).  </p>
+
+<p>behat creates a <code>/features</code> directory.  </p>
+
+<p>Behat lives in a universe of other tools, it sits on top of <code>Behat Context</code> and <code>Mink Context</code>. The <code>Behat Context</code> is a vanilla file in which you write your own context for how behat should interpret the tests. <code>Mink</code> provides web browser functionality. It can sit on top of  </p>
+
+<ul>
+  <li>seleneum  </li>
+  <li>goutte</li>
+  <li>zombie  </li>
+  <li>sahi   </li>
+</ul>
+
+<p>If you are using a framework, you can fire up the framework, inject the request, and get the response out, and this kind of customisation is available to people writing their own contexts. An open question is whether one can mock up Drupal requests to insert into the manual contextual scripts. </p>
+
+<p>Mink exposes descriptive commands that you can use to describe how your web application should work.  </p>
+
+<ul>
+  <li>Selenium: popular, multi-browser, js, slow  </li>
+  <li>goutte: défaut, native PHP, fast, no javascript  </li>
+  <li>sahi: multi-browser, js, slow, easier setup than selenium - maybe?  </li>
+  <li>zombie: headless browser in js written in node.js   </li>
+</ul>
+
+<p>You can specify at the level of an individual tests or scenarios as to which context that scenario should use (that sounds potentially really useful).   </p>
+
+<p>Bottom line, Behat makes testing a lot easier, makes testing fun, and can be quite revolutionary. </p>
+
+<p>Questions:<br />
+- how compliant is this user story language to the python/ruby equivalents - lettuce/cucumber
+    the answer is they all use the same language - gherkin, so tests are cross system writable. </p>
+
+<ul>
+  <li>can one get to a level of creating these kinds of stories for extremely fine grained visual elements?<br />
+  the answer to this is how do you get the balance between brittle tests, and tests that are too loose to
+  be of use. If can do this, it might not be the best idea to do this.   </li>
+</ul>
+
+</div>
+
+
+
+
+
+
+  
+   
+
+  
+   
+
+  
+   
+
+  
+   
+
+
+
+<div id="related">
+
+
+
+
+
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div id="comments" >
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'partiallyattended'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+     </div>
+
+    <div class="footer">
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91067-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+        <!-- Fluidbox https://github.com/terrymun/Fluidbox -->
+        <script src="/js/js-yaml.min.js"></script>
+        <script src="/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/js/jquery.fluidbox.min.js"></script>
+        <script type='text/javascript'>
+          $(function () {
+            $("a").fluidbox();
+          });
+        </script>
+
+        <!-- Bootstrap -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="/js/jasny-bootstrap.min.js"></script>
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </div>
+
+</div>
+
+
+</body>
+</html>

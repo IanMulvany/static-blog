@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+    
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Setting up Vagrant, Librarian-Chef and Vagrant aws plugins on OSX Mavericks. - 's Blog</title>
+   <meta name="author" content="" />
+   <meta name="google-site-verification" content="kcwqSOIUD45pdwQpCs4vO0hiOumWyJ42j_zp4Oc1eHE" />
+   <link rel='me' href='http://www.google.com/profiles/ian.mulvany'>
+   <link rel="alternate" type="application/rss+xml" title="partially attended" href="http://partiallyattended.com/atom.xml"/>
+   <!-- <link href="http://feeds.feedburner.com/hackerific" rel="alternate" title="Matt Foster" type="application/atom+xml" /> -->
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/app-ca19faaa3640e3ac64195a971a3f3ffd.css">
+    <link rel="stylesheet" href="/assets/jasny-bootstrap.min-1f13627da40baafa46480927e9ed7c4f.css">
+    <link rel="stylesheet" href="/assets/navmenu-push-48912be81fe1965cbda92ab1404e600b.css">
+    <link rel="stylesheet" href="/assets/fluidbox-e2af55dd5c3fecf7aea657fff65eec3f.css">
+
+</head>
+
+
+<body>
+
+
+<div class="site">
+
+    <div class="container">
+
+
+
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <div class="title">
+    <a class = "banner" href="/">partially-attended</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/tags.html">tags</a>
+    <a class="extra" href="/about.html">about</a>
+  </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h1>Setting up Vagrant, Librarian-Chef and Vagrant aws plugins on OSX Mavericks.</h1>
+
+<p class="info">Posted on: 19 November 2013
+
+in 
+  <a href="/tags.html#osx">osx</a>,
+
+  <a href="/tags.html#mavericks">mavericks</a>,
+
+  <a href="/tags.html#mac">mac</a>,
+
+  <a href="/tags.html#development">development</a>,
+
+  <a href="/tags.html#chef">chef</a>,
+
+  <a href="/tags.html#ruby">ruby</a>,
+
+  <a href="/tags.html#vagrant">vagrant</a>,
+
+  <a href="/tags.html#aws">aws</a>,
+
+  <a href="/tags.html#sys-ops">sys-ops</a>,
+
+  <a href="/tags.html#tutorial">tutorial</a>,
+
+  <a href="/tags.html#librarian">librarian</a>,
+
+  <a href="/tags.html#rvm">rvm</a>
+
+
+</p>
+
+<div id="post">
+<p>I have a new macbook pro. I want to install vagrant, chef and librarian, with the vagrant-aws plugins. I’m working on OSX Mavericks, and I want to get as clean an install as possible. For the most part I am also using the fish shell. This is what I’ve just run through over the last 20 minutes. </p>
+
+<ul>
+  <li>Install command line tools from the terminal<br />
+  <code>$ xcode-select --install</code></li>
+</ul>
+
+<p>Next we are going to install homebrew, with homebrew we will install <code>rvm</code> and with <code>rvm</code> we will install ruby. The goal is to have a ruby avilable at <code>/usr/local/bin</code> and to avoid using the system provided ruby, which is at <code>/usr/bin</code>.</p>
+
+<ul>
+  <li>
+    <p>install homebrew<br />
+  <code>$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code></p>
+  </li>
+  <li>
+    <p>update homebrew<br />
+  <code>$ brew doctor</code>
+  <code>$ brew update</code></p>
+  </li>
+</ul>
+
+<p><code>$ brew doctor</code> will do a healthcheck. As a result of running this I was reminded to re-order my <code>$PATH</code> to point to <code>\usr\local\bin</code> over ‘\usr\bin’.</p>
+
+<ul>
+  <li>
+    <p>Install prequisites for rvm<br />
+  <code>$ brew install autoconf automake libtool libyaml readline libksba openssl</code></p>
+  </li>
+  <li>
+    <p>Install <code>rvm</code><br />
+  <code>$ curl -L https://get.rvm.io | bash -s stable</code></p>
+  </li>
+  <li>
+    <p>Install a ruby<br />
+  <code>$ rvm install ruby-2.0.0-p247</code> <br />
+  <code>$ which ruby</code> will now return something like <code>/Users/ian/.rvm/rubies/ruby-2.0.0-p247/bin/ruby</code></p>
+  </li>
+  <li>
+    <p>I use the <a href="http://fishshell.com">fish</a> shell, and for some reason after intalling ruby with rvm the order of my <code>$PATH</code> got rearranged, so I rest <code>\usr\local\bin</code> to the front with <br />
+  <code>$ set PATH /usr/local/bin $PATH</code></p>
+  </li>
+  <li>
+    <p>OK, now we can try to install librarian with
+  <code>$ gem install librarian-chef</code></p>
+  </li>
+  <li>
+    <p>This installs 31 gems on my system - fun! I immediatly tested this in a repo with a working <code>Cheffile</code>, for a long running project that is ongoing withing <a href="http://elife.elifesciences.org">eLife</a>. 
+  <code>$ librarian-chef install</code> </p>
+  </li>
+</ul>
+
+<p>This worked, and downloaded 21 <code>chef</code> repositories, as expected. I’m feeling pretty good at this point.   </p>
+
+<ul>
+  <li>
+    <p>Let’s also get vagrant. I downloaded the latest version of vagrant - <a href="http://downloads.vagrantup.com/tags/v1.3.5">version 1.3.5</a>, and installed it via dmg. 
+After this <code>$ which vagrant</code> returns <code>\usr\bin\vagrant</code>, and <code>$ vagrant -v</code> returns <code>Vagrant 1.3.5</code>.  </p>
+  </li>
+  <li>
+    <p>Let’s install the aws-plugin for vagrant. We do this with <br />
+  <code>$ vagrant plugin install vagrant-aws</code></p>
+  </li>
+</ul>
+
+<p>That gets me <code>Installed the plugin 'vagrant-aws (0.4.0)'!</code>, yay!!. We still need to install chef, and check that vagrant up works on the project. </p>
+
+
+</div>
+
+
+
+
+
+
+  
+   
+    
+   
+
+  
+   
+
+  
+   
+    
+   
+
+  
+   
+    
+   
+
+  
+   
+    
+   
+
+  
+   
+    
+   
+
+  
+   
+    
+   
+
+  
+   
+
+  
+   
+
+  
+   
+    
+   
+
+  
+   
+
+  
+   
+
+
+
+<div id="related">
+
+  <h2>Recently Related By Tag</h2>
+
+
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#osx">osx</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>14 Jul 2008</span> &rarr; <a href="/2008/07/14/Installing-Python-Image-Library-on-a-Mac">Installing Python Image Library on a Mac</a></li>
+        
+      
+        
+            <li><span>14 Jul 2008</span> &rarr; <a href="/2008/07/14/CPANPLUS-and-Mac-OSX">CPANPLUS and Mac OSX</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+     <div id="taglink">
+      <a href="/tags.html#mac">mac</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>13 Dec 2010</span> &rarr; <a href="/2010/12/13/wrangling-image-metadata">Wrangling image metadata</a></li>
+        
+      
+        
+            <li><span>14 Nov 2010</span> &rarr; <a href="/2010/11/14/mac-gf1-video-workflow">Video workflow with a mac using iMovie and capturing with a Lumix GF1</a></li>
+        
+      
+        <li>
+               
+             
+                
+                    
+                
+             
+                
+             
+                
+             
+          
+            (<a href="/tags.html#mac">8 more with this tag</a>)
+          
+       
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#development">development</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>30 Sep 2013</span> &rarr; <a href="/2013/09/30/cug-agile-ux">Cambridge usability group - UX and agile</a></li>
+        
+      
+        
+            <li><span>23 Apr 2013</span> &rarr; <a href="/2013/04/23/chef-vagrant-over-virutalenv">Communicating better, moving from virtualenv to vagrant/Chef</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#chef">chef</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>23 Apr 2013</span> &rarr; <a href="/2013/04/23/chef-vagrant-over-virutalenv">Communicating better, moving from virtualenv to vagrant/Chef</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#ruby">ruby</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>23 Aug 2010</span> &rarr; <a href="/2010/08/23/passing-arguments-in-liquid-templates">Passing arguments in liquid templates.</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#vagrant">vagrant</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>23 Apr 2013</span> &rarr; <a href="/2013/04/23/chef-vagrant-over-virutalenv">Communicating better, moving from virtualenv to vagrant/Chef</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+    
+    
+      
+    
+     <div id="taglink">
+      <a href="/tags.html#tutorial">tutorial</a>
+
+      </div>
+       <ul class="posts">
+      
+        
+      
+        
+            <li><span>14 Jul 2008</span> &rarr; <a href="/2008/07/14/pythonic-is-a-way-of-thinking">pythonic is a way of thinking</a></li>
+        
+      
+        <li>
+               
+        </li>
+       </ul>
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+  
+
+  
+
+  
+ 
+
+
+
+
+
+
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div id="comments" >
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'partiallyattended'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+     </div>
+
+    <div class="footer">
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91067-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+        <!-- Fluidbox https://github.com/terrymun/Fluidbox -->
+        <script src="/js/js-yaml.min.js"></script>
+        <script src="/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/js/jquery.fluidbox.min.js"></script>
+        <script type='text/javascript'>
+          $(function () {
+            $("a").fluidbox();
+          });
+        </script>
+
+        <!-- Bootstrap -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="/js/jasny-bootstrap.min.js"></script>
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </div>
+
+</div>
+
+
+</body>
+</html>
